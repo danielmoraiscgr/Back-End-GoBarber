@@ -21,8 +21,16 @@
     "rules": {
         "prettier/prettier": "error",
         "class-methods-use-this": "off",
+        "@typescript-eslint/naming-convention": [
+            "error",
+            {
+              "selector": "interface",
+              "prefix": ["I"],
+              "format": ["PascalCase"]
+            }
+          ],
         "@typescript-eslint/camelcase": "off",
-        "import/extensios": [
+            "import/extensios": [
             "error",
             "ignorePackages",
             {
