@@ -1,8 +1,8 @@
 import { Request, Response, NextFunction } from 'express';
 import { verify } from 'jsonwebtoken';
-import AppError from '../errors/AppError';
+import AppError from '@shared/errors/AppError';
 
-import authConfig from '../config/auth';
+import authConfig from '@config/auth';
 
 interface TokenPayLoad {
     iat: number;
@@ -15,7 +15,8 @@ export default function ensureAutenticated(
     response: Response,
     next: NextFunction
 ): void {
-    // Validacao do toke JWT
+    
+    // Validacao do token JWT
     const authHeader = request.headers.authorization;
 
     if (!authHeader) {
