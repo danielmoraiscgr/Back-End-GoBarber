@@ -28,9 +28,9 @@ class ListProvidersDayAvailabilityService {
         provider_id, day, year, month
     }: IRequest): Promise<IResponse> {
 
-      if (!isUuid(provider_id) ){
-        throw new AppError('Id Provider is not uuid !');
-      }
+      // if (!isUuid(provider_id) ){
+      //   throw new AppError('Id Provider is not uuid !');
+      // }
       
       const appointments = await this.appointmentsRepository.findAllInDayFromProvider({
         provider_id, 
@@ -41,12 +41,12 @@ class ListProvidersDayAvailabilityService {
 
       // verificar se o ID do provedor é existente no banco
 
-      const checkProvider = await this.appointmentsRepository.findByProviderId(provider_id);
+      // const checkProvider = await this.appointmentsRepository.findByProviderId(provider_id);
 
 
-      if (!checkProvider) {
-        throw new AppError('Provider does not exist !');
-      }
+      // if (!checkProvider) {
+      //   throw new AppError('Provider does not exist !');
+      // }
 
       const hourStart = 8; 
 
