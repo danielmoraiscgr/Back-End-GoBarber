@@ -4,6 +4,7 @@ import 'express-async-errors';
 import routes from './routes';
 import uploadingConfig from '@config/upload';
 import AppError from '@shared/errors/AppError';
+import { errors } from 'celebrate';
 const cors = require('cors');
 
 import '@shared/infra/typeorm';
@@ -15,6 +16,8 @@ app.use(express.json());
 app.use(cors());
 app.use('/files', express.static(uploadingConfig.uploadsFolder));
 app.use(routes);
+
+app.use(errors()); // retorno Json validação rotas da aplicação.
 
 // tratativa global de erros da aplicação 
 
